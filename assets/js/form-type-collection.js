@@ -43,9 +43,17 @@ const EaCollectionProperty = {
             const labelRegexp = new RegExp(formTypeNamePlaceholder + 'label__', 'g');
             const nameRegexp = new RegExp(formTypeNamePlaceholder, 'g');
 
+            if (numItems !== 0) {
+                numItems++;
+            }
+
             let newItemHtml = collection.dataset.prototype
                 .replace(labelRegexp, numItems)
                 .replace(nameRegexp, numItems);
+
+            if (numItems === 0) {
+                numItems++;
+            }
 
             collection.dataset.numItems = ++numItems;
             const newItemInsertionSelector = isArrayCollection ? '.ea-form-collection-items' : '.ea-form-collection-items .accordion > .form-widget-compound';
