@@ -151,7 +151,7 @@
         'data-entry-is-complex': form.vars.ea_crud_form.ea_field and form.vars.ea_crud_form.ea_field.customOptions.get('entryIsComplex') ? 'true' : 'false',
         'data-allow-add': allow_add ? 'true' : 'false',
         'data-allow-delete': allow_delete ? 'true' : 'false',
-        'data-num-items': form.children is empty ? 0 : max(form.children|keys),
+        'data-num-items': form.children is empty ? 0 : (max(form.children|keys) == 0 ? 1 : max(form.children|keys)),
         'data-form-type-name-placeholder': prototype is defined ? prototype.vars.name : '',
     }) %}
 
