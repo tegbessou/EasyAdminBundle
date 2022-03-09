@@ -32,7 +32,7 @@ const EaCollectionProperty = {
             const isArrayCollection = collection.classList.contains('field-array');
             // Use a counter to avoid having the same index more than once
             let numItems = parseInt(collection.dataset.numItems);
-            let nextId = numItems === 0 || numItems === 1 ? numItems : numItems + 1;
+            let nextId = numItems;
 
             // Remove the 'Empty Collection' badge, if present
             const emptyCollectionBadge = this.parentElement.querySelector('.collection-empty');
