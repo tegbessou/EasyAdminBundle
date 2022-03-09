@@ -32,6 +32,7 @@ const EaCollectionProperty = {
             const isArrayCollection = collection.classList.contains('field-array');
             // Use a counter to avoid having the same index more than once
             let numItems = parseInt(collection.dataset.numItems);
+            let nextId = numItems === 0 || numItems === 1 ? numItems : numItems + 1;
 
             // Remove the 'Empty Collection' badge, if present
             const emptyCollectionBadge = this.parentElement.querySelector('.collection-empty');
@@ -44,8 +45,8 @@ const EaCollectionProperty = {
             const nameRegexp = new RegExp(formTypeNamePlaceholder, 'g');
 
             let newItemHtml = collection.dataset.prototype
-                .replace(labelRegexp, numItems)
-                .replace(nameRegexp, numItems);
+                .replace(labelRegexp, nextId)
+                .replace(nameRegexp, nextId);
 
             collection.dataset.numItems = numItems + 1;
             const newItemInsertionSelector = isArrayCollection ? '.ea-form-collection-items' : '.ea-form-collection-items .accordion > .form-widget-compound';
